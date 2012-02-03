@@ -29,6 +29,7 @@
     settings: {
       refreshMillis: 60000,
       allowFuture: false,
+      overwriteTitle: false,
       strings: {
         prefixAgo: null,
         prefixFromNow: null,
@@ -125,7 +126,7 @@
     if (!element.data("timeago")) {
       element.data("timeago", { datetime: $t.datetime(element) });
       var text = $.trim(element.text());
-      if (text.length > 0) {
+      if ($t.settings.overwriteTitle && text.length > 0) {
         element.attr("title", text);
       }
     }
