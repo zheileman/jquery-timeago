@@ -96,7 +96,7 @@
     datetime: function(elem) {
       // jQuery's `is()` doesn't play well with HTML5 in IE
       var isTime = $(elem).get(0).tagName.toLowerCase() === "time"; // $(elem).is("time");
-      var iso8601 = isTime ? $(elem).attr("datetime") : $(elem).attr("title");
+      var iso8601 = isTime ? $(elem).attr("datetime") : $(elem).attr("data-time");
       return $t.parse(iso8601);
     }
   });
