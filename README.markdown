@@ -6,6 +6,9 @@
 
 3) **Updates to this README to reflect the changes**
 
+You can use [this rails helper method](https://gist.github.com/1751193) in companion with this fork.
+
+
 # timeago: a jQuery plugin
 
 Timeago is a jQuery plugin that makes it easy to support automatically updating
