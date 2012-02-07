@@ -29,7 +29,8 @@
     settings: {
       refreshMillis: 60000,
       allowFuture: false,
-      overwriteTitle: false,
+      overwriteTitle: true,
+      localizeTitle: false,
       strings: {
         prefixAgo: null,
         prefixFromNow: null,
@@ -121,12 +122,19 @@
     return this;
   }
 
+  function localDatetime(data) {
+    return (!isNaN(data.datetime) ? data.datetime.toLocaleString() : "");
+  }
+
   function prepareData(element) {
     element = $(element);
     if (!element.data("timeago")) {
       element.data("timeago", { datetime: $t.datetime(element) });
       var text = $.trim(element.text());
       if ($t.settings.overwriteTitle && text.length > 0) {
+	    if ($t.settings.localizeTitle && text.match(/UTC/)) {
+		  text = localDatetime(element.data("timeago"));
+        }
         element.attr("title", text);
       }
     }

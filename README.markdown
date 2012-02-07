@@ -2,9 +2,11 @@
 
 1) **Use 'data-time' attribute instead of the 'title' attribute for storing the ISO 8601 timestamp.**
 
-2) **New configuration setting to enable/disable overwriting 'title' attribute with the tag content (defaults to false)**
+2) **New configuration setting to enable/disable overwriting 'title' attribute with the tag content (defaults to true)**
 
-3) **Updates to this README to reflect the changes**
+3) **New configuration setting to enable/disable 'title' localization when we detect the title will contain a UTC date (defaults to false)**
+
+4) **Updates to this README to reflect the changes**
 
 You can use [this rails helper method](https://gist.github.com/1751193) in companion with this fork.
 
@@ -37,19 +39,25 @@ Now, let's attach it to your timestamps on DOM ready:
 This will turn all abbr elements with a class of timeago and an ISO 8601 timestamp in the title:
 
 ```html
-<abbr class="timeago" data-time="2008-07-17T09:24:17Z">July 17, 2008</abbr>
+<abbr class="timeago" data-time="2012-02-07T10:29:44Z">2012-02-07 10:29:44 UTC</abbr>
 ```
 
 into something like this:
 
 ```html
-<abbr class="timeago" data-time="2008-07-17T09:24:17Z" title="July 17, 2008">about 1 day ago</abbr>
+<abbr class="timeago" data-time="2012-02-07T10:29:44Z" title="2012-02-07 10:29:44 UTC">about an hour ago</abbr>
 ```
 
 or, when title is disabled in settings (in case you don't want tooltips):
 
 ```html
-<abbr class="timeago" data-time="2008-07-17T09:24:17Z">about 1 day ago</abbr>
+<abbr class="timeago" data-time="2012-02-07T10:29:44Z">about an hour ago</abbr>
+```
+
+or, when title and title localization are both enabled (and the system and browser language is in spanish):
+
+```html
+<abbr class="timeago" data-time="2012-02-07T10:29:44Z" title="7 de febrero de 2012 10:29:44 GMT+00:00">about an hour ago</span>
 ```
 
 As time passes, the timestamps will automatically update.
